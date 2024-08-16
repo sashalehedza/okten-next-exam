@@ -27,10 +27,18 @@ const Header: FC = () => {
           <Link
             href='/genres'
             className={`mr-4 ${
-              pathName === '/movies' ? 'text-yellow-400' : ''
+              pathName === '/genres' ? 'text-yellow-400' : ''
             }`}
           >
             Genres
+          </Link>
+          <Link
+            href='/search'
+            className={`mr-4 ${
+              pathName === '/search' ? 'text-yellow-400' : ''
+            }`}
+          >
+            Search
           </Link>
         </div>
       </nav>
