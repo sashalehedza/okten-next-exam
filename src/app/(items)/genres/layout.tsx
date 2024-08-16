@@ -9,7 +9,7 @@ export default async function Layout({
 }) {
   const { genres } = await getGenresData()
   return (
-    <div className='flex  flex-col md:flex-row items-center md:items-start'>
+    <div className='flex flex-col'>
       <div>
         <h1
           className={
@@ -18,10 +18,12 @@ export default async function Layout({
         >
           Genres
         </h1>
-        <div className='flex w-2/12 flex-col pe-6 md:p-12'>
-          {genres.map((genre) => (
-            <GenreCard key={genre.id} genre={genre} />
-          ))}
+        <div className='w-full px-4'>
+          <div className='flex max-w-full overflow-x-auto space-x-4 rounded-lg bg-gray-100 p-4 scrollbar-thin scrollbar-thumb-gray-400'>
+            {genres.map((genre) => (
+              <GenreCard key={genre.id} genre={genre} />
+            ))}
+          </div>
         </div>
       </div>
       <main>{children}</main>
