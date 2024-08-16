@@ -8,13 +8,14 @@ const Pagination = dynamic(() => import('@/components/Pagination'), {
 })
 
 type PropsParamsType = {
-  searchParams?: { page?: string }
+  searchParams?: { page?: string; query?: string }
 }
 
 const MoviesPage = async ({ searchParams }: PropsParamsType) => {
   const page = Number(searchParams?.page) || 1
+  const query = searchParams?.query || ''
   const { results, total_pages: totalPages } = await getMoviesDataByName(
-    'super',
+    query,
     page
   )
 

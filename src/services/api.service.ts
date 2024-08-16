@@ -49,15 +49,16 @@ export const getMoviesDataByName = async (
   query: string,
   page: number
 ): Promise<ListResponse<Movie>> => {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
-      },
-      next: { revalidate: 3600 },
-    }
-  )
+  const apiCall = query
+    ? `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}`
+    : `https://api.themoviedb.org/3/discover/movie?page=${page}`
+
+  const response = await fetch(apiCall, {
+    headers: {
+      Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
+    },
+    next: { revalidate: 3600 },
+  })
 
   if (!response.ok) {
     throw new Error('Failed to fetch movies')
