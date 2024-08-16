@@ -1,17 +1,12 @@
-interface Movie {
-  id: number
-  title: string
-  overview: string
-  poster_path: string
-  release_date: string
-}
+import { Genre } from '@/models/Genre'
+import { ListResponse, Movie } from '@/models/Movie'
 
-export const fetchMovies = async (): Promise<Movie[]> => {
-  const response = await fetch('https://api.themoviedb.org/3/discover/movie', {
+export const getMoviesData = async (): Promise<ListResponse<Movie>> => {
+  const response = await fetch(`https://api.themoviedb.org/3/discover/movie`, {
     headers: {
-      Authorization: `Bearer ${process.env.TMDB_API_KEY}`, // Use the TMDB API key from environment variables
+      Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
     },
-    next: { revalidate: 3600 }, // Revalidate the data every hour (optional)
+    next: { revalidate: 3600 },
   })
 
   if (!response.ok) {
@@ -19,5 +14,5 @@ export const fetchMovies = async (): Promise<Movie[]> => {
   }
 
   const data = await response.json()
-  return data.results
+  return data
 }
