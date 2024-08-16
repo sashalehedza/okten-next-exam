@@ -35,7 +35,6 @@ const MoviesListCard: FC<IProps> = ({ movie }) => {
           </span>
           <span className='text-sm'>Votes: {movie.vote_count}</span>
         </div>
-        <Link href={`/movies/${movie.id}`}>More Details</Link>
       </div>
     </div>
   )
