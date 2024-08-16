@@ -6,7 +6,7 @@ type GenreCardProps = {
   genre: Genre
 }
 
-const GenreCard: React.FC<GenreCardProps> = ({ genre }) => {
+const GenreBadge: React.FC<GenreCardProps> = ({ genre }) => {
   return (
     <Link
       className='bg-white shadow-md rounded-lg p-4'
@@ -17,4 +17,4 @@ const GenreCard: React.FC<GenreCardProps> = ({ genre }) => {
   )
 }
 
-export default GenreCard
+export default GenreBadge

@@ -1,6 +1,6 @@
 import React from 'react'
 import { getGenresData } from '@/services/api.service'
-import GenreCard from '@/components/GenreCard'
+import GenreBadge from '@/components/GenreBadge'
 
 export default async function Layout({
   children,
@@ -21,7 +21,7 @@ export default async function Layout({
         <div className='w-full px-4'>
           <div className='flex max-w-full overflow-x-auto space-x-4 rounded-lg bg-gray-100 p-4 scrollbar-thin scrollbar-thumb-gray-400'>
             {genres.map((genre) => (
-              <GenreCard key={genre.id} genre={genre} />
+              <GenreBadge key={genre.id} genre={genre} />
             ))}
           </div>
         </div>

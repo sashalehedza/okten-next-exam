@@ -13,8 +13,6 @@ const MoviesListCard: FC<IProps> = ({ movie }) => {
 
   return (
     <div className='bg-white rounded-lg shadow-lg'>
-      {/* Movie Poster */}
-
       <Image
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
