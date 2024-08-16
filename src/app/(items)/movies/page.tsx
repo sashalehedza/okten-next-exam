@@ -1,13 +1,24 @@
-import { getMoviesData } from '@/services/api.service'
-import MovieCard from '../../../components/MovieCard'
+'use server'
+import React from 'react'
 
-const UsersPage = async () => {
-  const { results } = await getMoviesData()
+import MovieCard from '@/components/MovieCard'
+import { getMoviesData } from '@/services/api.service'
+
+type PropsParamsType = {
+  searchParams?: { page?: string }
+}
+
+const MoviesPage = async ({ searchParams }: PropsParamsType) => {
+  const page = Number(searchParams?.page) || 1
+  let { results } = await getMoviesData(page || 1)
 
   return (
-    <div className='container mx-auto p-4'>
-      <h1 className='text-2xl font-bold mb-6'>Popular Movies</h1>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+    <div className={'flex flex-col justify-items-center'}>
+      <div
+        className={
+          'w-full grid  justify-center lg:grid-cols-5 lg:justify-around wrap gap-6 md:justify-around md:m-0 lg:w-full md:grid-cols-2 pt-4 pb-4'
+        }
+      >
         {results.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -16,4 +27,4 @@ const UsersPage = async () => {
   )
 }
 
-export default UsersPage
+export default MoviesPage
