@@ -27,8 +27,7 @@ const MoviesListCard: FC<IProps> = ({ movie }) => {
       <div className='p-4 space-y-4'>
         <h2 className='text-xl font-semibold mb-2'>{movie.title}</h2>
         <div className='flex items-center space-x-2 text-gray-500'>
-          <span className='text-sm'>{movie.release_date.split('-')[0]}</span>
-          <span className='text-sm'>•</span>
+          <p className='text-sm text-gray-500'>{movie.release_date}</p>
         </div>
         <StarRating rating={movie.vote_average} />
         <p className='text-gray-700 mt-2'>{movie.overview}</p>
