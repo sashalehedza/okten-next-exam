@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Movie } from '@/models/Movie'
 import Link from 'next/link'
+import StarRating from './StarRating'
 
 type MovieCardProps = {
   movie: Movie
@@ -23,7 +24,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
       />
       <h2 className='text-lg font-semibold mt-2'>{movie.title}</h2>
       <p className='text-sm text-gray-500'>{movie.release_date}</p>
-      <p className='mt-2 text-gray-700'>{movie.overview}</p>
+      <StarRating rating={movie.vote_average} />
     </Link>
   )
 }
