@@ -1,5 +1,5 @@
 import { fetchMovies } from '@/services/api.service'
-import MovieCard from './components/MovieCard'
+import MovieCard from '../../../components/MovieCard'
 
 const UsersPage = async () => {
   const movies = await fetchMovies()
