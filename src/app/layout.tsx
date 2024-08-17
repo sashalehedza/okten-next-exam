@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 import ThemeProvider from '@/components/ThemeProvider'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function RootLayout({
           <body className={inter.className}>
             <Header />
             {children}
+            <Footer />
           </body>
         </html>
       </ThemeProvider>
