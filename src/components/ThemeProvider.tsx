@@ -1,6 +1,6 @@
 // src/components/ThemeProvider.tsx
+import { useAppSelector } from '@/app/store/store'
 import { useEffect } from 'react'
-import { useAppSelector } from '../app/store/store'
 
 const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
