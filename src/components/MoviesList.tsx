@@ -8,7 +8,7 @@ type MoviesListProps = {
 
 const MoviesList: React.FC<MoviesListProps> = ({ movies }) => {
   return (
-    <div className='w-full grid justify-center lg:grid-cols-5 lg:justify-around wrap gap-6 md:justify-around md:m-0 lg:w-full md:grid-cols-2 pt-4 pb-4'>
+    <div className='w-full px-4 grid justify-center lg:grid-cols-5 lg:justify-around gap-6 md:grid-cols-2 pt-4 pb-4'>
       {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
