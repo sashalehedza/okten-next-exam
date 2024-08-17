@@ -17,9 +17,8 @@ const MoviesListCard: FC<IProps> = ({ movie }) => {
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
         className='rounded-md'
-        width={200}
+        width={500}
         height={500}
-        priority
       />
 
       <div className='p-4 space-y-4'>

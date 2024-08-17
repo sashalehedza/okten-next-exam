@@ -15,8 +15,6 @@ type PropsParamsType = {
 const MoviesPage = async ({ searchParams }: PropsParamsType) => {
   const page = Number(searchParams?.page) || 1
   const { results: movies, total_pages: totalPages } = await getMoviesData(page)
-  const { genres } = await getGenresData()
-  console.log(genres)
 
   return (
     <div className='flex flex-col justify-items-center'>
