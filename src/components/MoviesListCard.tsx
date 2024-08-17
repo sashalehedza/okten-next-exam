@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Movie } from '@/models/Movie'
 import StarRating from './StarRating'
 import GenreBadge from './GenreBadge'
+import PosterPreview from './PosterPreview'
 
 type IProps = {
   movie: Movie
@@ -12,13 +13,7 @@ const MoviesListCard: FC<IProps> = ({ movie }) => {
   return (
     <div>
       <div className='flex justify-center'>
-        <Image
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-          className='rounded-md'
-          width={200}
-          height={200}
-        />
+        <PosterPreview src={movie.poster_path} alt={movie.title} />
       </div>
 
       <div className='p-4 space-y-4'>
