@@ -1,7 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import MovieCard from '@/components/MovieCard'
-import { getGenresData, getMoviesData } from '@/services/api.service'
+import { getMoviesData } from '@/services/api.service'
 import MoviesList from '@/components/MoviesList'
 
 const Pagination = dynamic(() => import('@/components/Pagination'), {

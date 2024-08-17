@@ -1,6 +1,5 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import MovieCard from '@/components/MovieCard'
 import { getMoviesData } from '@/services/api.service'
 import MoviesList from '@/components/MoviesList'
 

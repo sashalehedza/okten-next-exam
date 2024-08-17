@@ -1,4 +1,3 @@
-// src/components/ThemeProvider.tsx
 import { useAppSelector } from '@/app/store/store'
 import { useEffect } from 'react'
 

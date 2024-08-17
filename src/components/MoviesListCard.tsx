@@ -2,15 +2,12 @@ import React, { FC } from 'react'
 import Image from 'next/image'
 import { Movie } from '@/models/Movie'
 import StarRating from './StarRating'
-import Link from 'next/link'
 
 type IProps = {
   movie: Movie
 }
 
 const MoviesListCard: FC<IProps> = ({ movie }) => {
-  // Map genre IDs to genre names
-
   return (
     <div className='rounded-lg shadow-lg'>
       <Image
