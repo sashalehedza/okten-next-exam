@@ -10,10 +10,7 @@ type MovieCardProps = {
 
 const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
-    <Link
-      className='bg-white shadow-md rounded-lg p-4'
-      href={`/movies/${movie.id}`}
-    >
+    <Link className='shadow-md rounded-lg p-4' href={`/movies/${movie.id}`}>
       <Image
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}

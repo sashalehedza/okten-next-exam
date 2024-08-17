@@ -8,10 +8,7 @@ type GenreCardProps = {
 
 const GenreBadge: React.FC<GenreCardProps> = ({ genre }) => {
   return (
-    <Link
-      className='bg-white shadow-md rounded-lg p-4'
-      href={`/genres/${genre.id}`}
-    >
+    <Link className='shadow-md rounded-lg p-4' href={`/genres/${genre.id}`}>
       <h2 className='text-lg font-semibold mt-2'>{genre.name}</h2>
     </Link>
   )

@@ -19,7 +19,7 @@ export default async function Layout({
           Genres
         </h1>
         <div className='w-full px-4'>
-          <div className='flex max-w-full overflow-x-auto space-x-4 rounded-lg bg-gray-100 p-4 scrollbar-thin scrollbar-thumb-gray-400'>
+          <div className='flex max-w-full overflow-x-auto space-x-4 rounded-lg p-4 scrollbar-thin scrollbar-thumb-gray-400'>
             {genres.map((genre) => (
               <GenreBadge key={genre.id} genre={genre} />
             ))}

@@ -1,4 +1,3 @@
-// components/Header.tsx
 'use client'
 
 import { setTheme } from '@/app/store/slices/themeSlice'
@@ -6,33 +5,37 @@ import { useAppDispatch, useAppSelector } from '@/app/store/store'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC } from 'react'
+import { FaSun, FaMoon } from 'react-icons/fa'
 
 const Header: FC = () => {
-  let pathName = usePathname()
+  const pathName = usePathname()
   const { theme } = useAppSelector((state) => state.theme)
   const dispatch = useAppDispatch()
 
   const toggleTheme = () => {
-    if (theme === 'light') {
-      dispatch(setTheme('dark'))
-    } else {
-      dispatch(setTheme('light'))
-    }
+    dispatch(setTheme(theme === 'light' ? 'dark' : 'light'))
   }
+
   return (
-    <header className='bg-gray-800 text-white p-4'>
+    <header className='p-4 bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text'>
       <nav className='flex justify-between items-center container mx-auto'>
-        <div className='text-lg font-bold'>
+        <div className='text-lg font-bold flex-grow'>
           <Link
             href='/'
-            className={`mr-4 ${pathName === '/' ? 'text-yellow-400' : ''}`}
+            className={`mr-4 ${
+              pathName === '/'
+                ? 'text-light-primary dark:text-dark-primary'
+                : ''
+            }`}
           >
             Home
           </Link>
           <Link
             href='/movies'
             className={`mr-4 ${
-              pathName === '/movies' ? 'text-yellow-400' : ''
+              pathName === '/movies'
+                ? 'text-light-primary dark:text-dark-primary'
+                : ''
             }`}
           >
             Movies
@@ -40,7 +43,9 @@ const Header: FC = () => {
           <Link
             href='/genres'
             className={`mr-4 ${
-              pathName === '/genres' ? 'text-yellow-400' : ''
+              pathName === '/genres'
+                ? 'text-light-primary dark:text-dark-primary'
+                : ''
             }`}
           >
             Genres
@@ -48,15 +53,18 @@ const Header: FC = () => {
           <Link
             href='/search'
             className={`mr-4 ${
-              pathName === '/search' ? 'text-yellow-400' : ''
+              pathName === '/search'
+                ? 'text-light-primary dark:text-dark-primary'
+                : ''
             }`}
           >
             Search
           </Link>
         </div>
+        <button onClick={toggleTheme} className='text-2xl'>
+          {theme === 'light' ? <FaMoon /> : <FaSun />}
+        </button>
       </nav>
-      <button onClick={toggleTheme}>Toggle Theme</button>
-      {theme}
     </header>
   )
 }

@@ -21,7 +21,7 @@ const SearchBar = () => {
   }
 
   return (
-    <div className='flex items-center bg-white border border-gray-300 rounded-full px-4 py-2 shadow-md'>
+    <div className='flex items-center border border-gray-300 rounded-full px-4 py-2 shadow-md'>
       <FaSearch className='text-gray-500 mr-3' />
       <input
         className='flex-grow outline-none text-gray-700'
