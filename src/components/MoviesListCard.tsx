@@ -27,6 +27,7 @@ const MoviesListCard: FC<IProps> = ({ movie }) => {
           <p className='text-sm'>{movie.release_date}</p>
         </div>
         <StarRating rating={movie.vote_average} />
+        <p>Rating: {movie.vote_average}</p>
         <p className='mt-2'>{movie.overview}</p>
 
         <span className='text-sm'>
