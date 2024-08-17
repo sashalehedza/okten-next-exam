@@ -11,7 +11,7 @@ export type Movie = {
   adult: boolean
   overview: string
   release_date: string
-  genre_ids: number[]
+  genres: { id: number; name: string }[]
   original_title: string
   original_language: string
   title: string

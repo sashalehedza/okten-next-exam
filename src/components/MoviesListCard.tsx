@@ -2,12 +2,15 @@ import React, { FC } from 'react'
 import Image from 'next/image'
 import { Movie } from '@/models/Movie'
 import StarRating from './StarRating'
+import GenreBadge from './GenreBadge'
 
 type IProps = {
   movie: Movie
 }
 
 const MoviesListCard: FC<IProps> = ({ movie }) => {
+  console.log(movie)
+
   return (
     <div className='rounded-lg shadow-lg'>
       <Image
@@ -25,11 +28,15 @@ const MoviesListCard: FC<IProps> = ({ movie }) => {
         </div>
         <StarRating rating={movie.vote_average} />
         <p className='mt-2'>{movie.overview}</p>
-        <div className='flex items-center justify-between mt-4'>
-          <span className='text-sm'>
-            Popularity: {movie.popularity.toFixed(1)}
-          </span>
-          <span className='text-sm'>Votes: {movie.vote_count}</span>
+
+        <span className='text-sm'>
+          Popularity: {movie.popularity.toFixed(1)}
+        </span>
+        <span className='text-sm'>Votes: {movie.vote_count}</span>
+        <div className='flex items-center space-x-2'>
+          {movie?.genres?.map((genre) => (
+            <GenreBadge key={genre.id} genre={genre} />
+          ))}
         </div>
       </div>
     </div>
