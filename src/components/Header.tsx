@@ -24,8 +24,8 @@ const Header: FC = () => {
             href='/'
             className={`mr-4 ${
               pathName === '/'
-                ? 'text-light-primary dark:text-dark-primary'
-                : ''
+                ? 'text-red-500'
+                : 'text-light-primary dark:text-dark-primary'
             }`}
           >
             Home
@@ -34,8 +34,8 @@ const Header: FC = () => {
             href='/movies'
             className={`mr-4 ${
               pathName === '/movies'
-                ? 'text-light-primary dark:text-dark-primary'
-                : ''
+                ? 'text-red-500'
+                : 'text-light-primary dark:text-dark-primary'
             }`}
           >
             Movies
@@ -44,8 +44,8 @@ const Header: FC = () => {
             href='/genres'
             className={`mr-4 ${
               pathName === '/genres'
-                ? 'text-light-primary dark:text-dark-primary'
-                : ''
+                ? 'text-red-500'
+                : 'text-light-primary dark:text-dark-primary'
             }`}
           >
             Genres
@@ -54,8 +54,8 @@ const Header: FC = () => {
             href='/search'
             className={`mr-4 ${
               pathName === '/search'
-                ? 'text-light-primary dark:text-dark-primary'
-                : ''
+                ? 'text-red-500'
+                : 'text-light-primary dark:text-dark-primary'
             }`}
           >
             Search
