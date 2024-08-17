@@ -2,8 +2,7 @@ import { GenreList } from '@/models/Genre'
 import { ListResponse, Movie } from '@/models/Movie'
 
 export const getMoviesData = async (
-  page: number,
-  genreId?: number
+  page: number
 ): Promise<ListResponse<Movie>> => {
   const response = await fetch(
     `https://api.themoviedb.org/3/discover/movie?page=${page}`,
