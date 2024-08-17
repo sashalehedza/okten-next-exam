@@ -1,5 +1,3 @@
-'use client'
-
 import { setTheme } from '@/app/store/slices/themeSlice'
 import { useAppDispatch, useAppSelector } from '@/app/store/store'
 import Link from 'next/link'
@@ -15,6 +13,8 @@ const Header: FC = () => {
   const toggleTheme = () => {
     dispatch(setTheme(theme === 'light' ? 'dark' : 'light'))
   }
+
+  const isActive = (path: string) => pathName.startsWith(path)
 
   return (
     <header className='p-4 bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text'>
@@ -33,7 +33,7 @@ const Header: FC = () => {
           <Link
             href='/movies'
             className={`mr-4 ${
-              pathName === '/movies'
+              isActive('/movies')
                 ? 'text-red-500'
                 : 'text-light-primary dark:text-dark-primary'
             }`}
@@ -43,7 +43,7 @@ const Header: FC = () => {
           <Link
             href='/genres'
             className={`mr-4 ${
-              pathName === '/genres'
+              isActive('/genres')
                 ? 'text-red-500'
                 : 'text-light-primary dark:text-dark-primary'
             }`}
@@ -53,7 +53,7 @@ const Header: FC = () => {
           <Link
             href='/search'
             className={`mr-4 ${
-              pathName === '/search'
+              isActive('/search')
                 ? 'text-red-500'
                 : 'text-light-primary dark:text-dark-primary'
             }`}
