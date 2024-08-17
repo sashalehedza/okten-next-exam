@@ -1,11 +1,15 @@
 // components/Header.tsx
 'use client'
+
+import { useAppDispatch, useAppSelector } from '@/app/store/store'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC } from 'react'
 
 const Header: FC = () => {
   let pathName = usePathname()
+  const { theme } = useAppSelector((state) => state.theme)
+  const dispatch = useAppDispatch()
   return (
     <header className='bg-gray-800 text-white p-4'>
       <nav className='flex justify-between items-center container mx-auto'>
@@ -42,6 +46,7 @@ const Header: FC = () => {
           </Link>
         </div>
       </nav>
+      {theme}
     </header>
   )
 }
