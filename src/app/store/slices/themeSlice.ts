@@ -4,8 +4,15 @@ type ThemeState = {
   theme: string
 }
 
+const getInitialTheme = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('theme') || 'light'
+  }
+  return 'light'
+}
+
 const initialState: ThemeState = {
-  theme: localStorage.getItem('theme') || 'light',
+  theme: getInitialTheme(),
 }
 
 const themeSlice = createSlice({
@@ -14,7 +21,9 @@ const themeSlice = createSlice({
   reducers: {
     setTheme: (state, { payload }) => {
       state.theme = payload
-      localStorage.setItem('theme', payload)
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('theme', payload)
+      }
     },
   },
 })

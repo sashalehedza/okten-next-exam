@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC } from 'react'
 import { FaSun, FaMoon } from 'react-icons/fa'
+import UserInfo from './UserInfo'
 
 const Header: FC = () => {
   const pathName = usePathname()
@@ -61,6 +62,7 @@ const Header: FC = () => {
             Search
           </Link>
         </div>
+        <UserInfo />
         <button onClick={toggleTheme} className='text-2xl'>
           {theme === 'light' ? <FaMoon /> : <FaSun />}
         </button>
