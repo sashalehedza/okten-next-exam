@@ -1,6 +1,7 @@
 // components/Header.tsx
 'use client'
 
+import { setTheme } from '@/app/store/slices/themeSlice'
 import { useAppDispatch, useAppSelector } from '@/app/store/store'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -10,6 +11,14 @@ const Header: FC = () => {
   let pathName = usePathname()
   const { theme } = useAppSelector((state) => state.theme)
   const dispatch = useAppDispatch()
+
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      dispatch(setTheme('dark'))
+    } else {
+      dispatch(setTheme('light'))
+    }
+  }
   return (
     <header className='bg-gray-800 text-white p-4'>
       <nav className='flex justify-between items-center container mx-auto'>
@@ -46,6 +55,7 @@ const Header: FC = () => {
           </Link>
         </div>
       </nav>
+      <button onClick={toggleTheme}>Toggle Theme</button>
       {theme}
     </header>
   )
