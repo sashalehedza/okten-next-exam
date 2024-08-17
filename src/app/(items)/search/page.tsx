@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import MoviesList from '@/components/MoviesList'
 import { getMoviesDataByName } from '@/services/api.service'
@@ -6,6 +6,8 @@ import { getMoviesDataByName } from '@/services/api.service'
 const Pagination = dynamic(() => import('@/components/Pagination'), {
   ssr: false,
 })
+
+const SuspenseFallback = () => <div className='text-center'>Loading...</div>
 
 type PropsParamsType = {
   searchParams?: { page?: string; query?: string }
@@ -18,10 +20,12 @@ const MoviesPage = async ({ searchParams }: PropsParamsType) => {
     await getMoviesDataByName(query, page)
 
   return (
-    <div className='flex flex-col justify-items-center'>
-      <MoviesList movies={movies} />
-      <Pagination currentPage={page} totalPages={totalPages} />
-    </div>
+    <Suspense fallback={<SuspenseFallback />}>
+      <div className='flex flex-col justify-items-center'>
+        <MoviesList movies={movies} />
+        <Pagination currentPage={page} totalPages={totalPages} />
+      </div>
+    </Suspense>
   )
 }
 
