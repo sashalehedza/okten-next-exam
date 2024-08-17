@@ -20,7 +20,7 @@ const GenreBadge: React.FC<GenreCardProps> = ({ genre }) => {
       }`}
       href={`/genres/${genre.id}`}
     >
-      <h2 className='text-lg font-semibold mt-2'>{genre.name}</h2>
+      <h2 className='text-lg font-semibold whitespace-nowrap'>{genre.name}</h2>
     </Link>
   )
 }
