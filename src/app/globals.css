@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* globals.css */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);

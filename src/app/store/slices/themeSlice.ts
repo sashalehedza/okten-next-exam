@@ -5,7 +5,7 @@ type ThemeState = {
 }
 
 const initialState: ThemeState = {
-  theme: 'light',
+  theme: localStorage.getItem('theme') || 'light',
 }
 
 const themeSlice = createSlice({
@@ -14,6 +14,8 @@ const themeSlice = createSlice({
   reducers: {
     setTheme: (state, { payload }) => {
       state.theme = payload
+
+      localStorage.setItem('theme', payload)
     },
   },
 })
