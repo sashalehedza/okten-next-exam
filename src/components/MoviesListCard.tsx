@@ -9,8 +9,6 @@ type IProps = {
 }
 
 const MoviesListCard: FC<IProps> = ({ movie }) => {
-  console.log(movie)
-
   return (
     <div className='rounded-lg shadow-lg'>
       <Image
