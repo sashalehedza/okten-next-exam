@@ -7,8 +7,6 @@ const Pagination = dynamic(() => import('@/components/Pagination'), {
   ssr: false,
 })
 
-const SuspenseFallback = () => <div className='text-center'>Loading...</div>
-
 type PropsParamsType = {
   searchParams?: { page?: string; query?: string }
 }
@@ -20,12 +18,13 @@ const MoviesPage = async ({ searchParams }: PropsParamsType) => {
     await getMoviesDataByName(query, page)
 
   return (
-    <Suspense fallback={<SuspenseFallback />}>
-      <div className='flex flex-col justify-items-center'>
+    <div className='flex flex-col justify-items-center'>
+      <Suspense key={query + page}>
         <MoviesList movies={movies} />
-        <Pagination currentPage={page} totalPages={totalPages} />
-      </div>
-    </Suspense>
+      </Suspense>
+
+      <Pagination currentPage={page} totalPages={totalPages} />
+    </div>
   )
 }
 
