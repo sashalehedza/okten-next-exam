@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import { Provider } from 'react-redux'
-import { store } from './store/store'
+import { store } from '@/app/store/store'
 import ThemeProvider from '@/components/ThemeProvider'
 import Footer from '@/components/Footer'
 
