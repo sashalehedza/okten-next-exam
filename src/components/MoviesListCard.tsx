@@ -10,7 +10,7 @@ type IProps = {
 
 const MoviesListCard: FC<IProps> = ({ movie }) => {
   return (
-    <div className='rounded-lg shadow-lg'>
+    <div>
       <div className='flex justify-center'>
         <Image
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
